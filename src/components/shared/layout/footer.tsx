@@ -24,6 +24,7 @@ export function Footer({ countryCode = "" }: { countryCode?: string }) {
     currentCountryCode = countryFromPath || "pe";
   }
 
+  
   useEffect(() => {
     setMounted(true);
   }, []);
