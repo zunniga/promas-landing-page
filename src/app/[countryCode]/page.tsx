@@ -7,13 +7,11 @@ import { fetchGraduates } from '@/lib/api/graduates';
 // Importar datos de país según el código de país
 import {
   heroSlidesPE,
-  testimonialsPE,
   statsPE
 } from '@/mock/inicio/peru-data';
 
 import {
   heroslidesCO,
-  testimonialsCO,
   statsCO
 } from '@/mock/inicio/colombia-data';
 
@@ -56,16 +54,16 @@ export default async function CountryHomePage({ params }: CountryParams) {
   const featuredDiplomas = graduatesResponse.data;
   
   // Determinar qué datos usar según el código de país
-  let heroSlides, testimonials, stats;
+  let heroSlides, stats;
   
   if (countryCode === 'pe') {
     heroSlides = heroSlidesPE;
-    testimonials = testimonialsPE;
+
     stats = statsPE;
   } else {
     // Para CO y ES - usar datos de Colombia
     heroSlides = heroslidesCO;
-    testimonials = testimonialsCO;
+ 
     stats = statsCO;
   }
 
@@ -75,7 +73,7 @@ export default async function CountryHomePage({ params }: CountryParams) {
       countryName={country.name} // Nombre dinámico para país global
       heroSlides={heroSlides}
       featuredCourses={featuredCourses}
-      testimonials={testimonials}
+      testimonials={[]} // Puedes reemplazar [] con datos reales si los tienes
       stats={stats}
       featuredDiplomas={featuredDiplomas}
     />

@@ -40,8 +40,12 @@ export interface Partnership {
   logo: string;
 }
 
+
+export type Testimonial = typeof import('@/components/sections/inicio/testimonials').default;
+
 // Re-export other interfaces from components
-export type { Testimonial } from '@/components/sections/inicio/testimonials';
+// export type { Testimonial } from '@/components/sections/inicio/testimonials';
+// If you need the Testimonial type, import the default export or define the interface here.
 
 // News and diploma types - updating FeaturedDiploma to match component
 export interface FeaturedDiploma {
