@@ -166,7 +166,7 @@ const CounterStats: React.FC<CounterStatsProps> = ({ className = "" }) => {
       <div className="absolute inset-0 bg-none dark:bg-black/10 " />
 
       {/* Additional overlay for better text readability */}
-      <div className="absolute inset-0 " />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#CC0072]/45 to-[#360b7f]/45  dark:from-[#080718]/70 dark:via-[#080717]/70 dark:to-[#080717]/70" />
 
       {/* Main content */}
       <div className="relative z-10 container mx-auto px-4 py-16 lg:py-20">

@@ -120,7 +120,7 @@ export function GraduatesWithPagination({
         <div className="max-w-7xl mx-auto">
           <div className="relative w-full h-[400px] mb-12  overflow-hidden rounded-2xl">
             <Image
-              src="/es/graduate/graduate-bg.jpg"
+              src="/es/graduate/graduate-bg.png"
               alt="Graduados"
               fill
               className="object-cover"

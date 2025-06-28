@@ -7,23 +7,14 @@ export const heroStatsPE = [
 
 export const partnershipsPE = [
   {
-    name: "Universidad San Marcos",
+    name: "Universidad Nacional de Piura",
     type: "Alianza Académica",
-    logo: "/peru/partner/ECOMÁS.png"
+    logo: "/es/logos/universidad.png"
   },
   {
-    name: "TECSUP",
-    type: "Colaboración Técnica",
-    logo: "/peru/partner/ECOMÁS.png"
+    name: "FUNDENORP",
+    type: "Alianza Académica",
+    logo: "/es/logos/fundenorp.png"
   },
-  {
-    name: "Cámara de Comercio de Lima",
-    type: "Vinculación Empresarial",
-    logo: "/peru/partner/ECOMÁS.png"
-  },
-  {
-    name: "SNI",
-    type: "Desarrollo Industrial",
-    logo: "/peru/partner/ECOMÁS.png"
-  }
+
 ];

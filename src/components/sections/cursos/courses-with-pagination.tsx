@@ -24,14 +24,13 @@ interface CoursesWithPaginationProps {
 }
 
 const gradients = {
-  primary: "from-[#cf0072] to-[#680080]",
-  accent: "from-[#680080] to-[#cf0072]",
-  hero: "from-[#360b7f]/70 to-[#680080]/50 dark:from-[#360b7f]/80 dark:to-[#cf0072]/40",
+  primary: " from-[#360b7f] to-[#90007e]",
+  accent: "from-[#CF0072] to-[#E82769]",
+  hero: "from-[#360b7f]/70 to-[#680080]/50 dark:from-[#360b7f] dark:to-[#360b7f]/25",
 };
 
 export function CoursesWithPagination({
   countryCode,
-  countryName,
   initialCourses,
   initialPagination,
 }: CoursesWithPaginationProps) {
@@ -120,9 +119,9 @@ export function CoursesWithPagination({
         <div className="max-w-7xl mx-auto">
           
           {/* Header */}
-          <div className="relative w-full h-[400px] mb-12  overflow-hidden rounded-2xl">
+          <div className="relative w-full h-[400px] mb-12  overflow-hidden rounded-2xl ">
           <Image
-            src="/es/graduate/course-bg.jpg"
+            src="/es/graduate/course-bg.png"
             alt="Cursos"
             fill
             className="object-cover"
@@ -130,7 +129,7 @@ export function CoursesWithPagination({
           />
 
           <div
-            className={`absolute inset-0 bg-gradient-to-b ${gradients.hero}`}
+            className={`absolute inset-0 bg-gradient-to-t ${gradients.hero}`}
           ></div>
 
           <motion.div
@@ -145,7 +144,7 @@ export function CoursesWithPagination({
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Cursos con
+              Cursos que Impulsan
             </motion.div>
 
             <motion.div
@@ -154,7 +153,7 @@ export function CoursesWithPagination({
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              enfoque profesional en {countryName}
+              tu Futuro
             </motion.div>
 
             <motion.p
