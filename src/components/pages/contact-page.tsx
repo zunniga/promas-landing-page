@@ -94,7 +94,7 @@ export default function ContactPage({ countryCode }: ContactPageProps) {
   };
 
   return (
-   <main  className=" bg-transparent pb-16 px-4 mt-48">
+   <section id="contacto"  className=" bg-transparent pb-16 px-4 mt-48">
       <div className="max-w-[1200px] mx-auto space-y-12">
         {/* Header */}
         <motion.div
@@ -506,6 +506,6 @@ export default function ContactPage({ countryCode }: ContactPageProps) {
           </motion.div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

@@ -24,9 +24,9 @@ interface CoursesWithPaginationProps {
 }
 
 const gradients = {
-  primary: "from-[#12a9be] to-[#0d617b]",
-  accent: "from-[#0d617b] to-[#12a9be]",
-  hero: "from-[#080717]/70 to-[#0d617b]/50 dark:from-[#080717]/80 dark:to-[#12a9be]/40",
+  primary: "from-[#cf0072] to-[#680080]",
+  accent: "from-[#680080] to-[#cf0072]",
+  hero: "from-[#360b7f]/70 to-[#680080]/50 dark:from-[#360b7f]/80 dark:to-[#cf0072]/40",
 };
 
 export function CoursesWithPagination({
@@ -115,8 +115,8 @@ export function CoursesWithPagination({
   };
 
   return (
-    <section className=" relative overflow-hidden">
-      <div className="container mx-auto relative z-10">
+    <section className=" relative overflow-hidden ">
+      <div className="container mx-auto relative z-10 ">
         <div className="max-w-7xl mx-auto">
           
           {/* Header */}
@@ -149,7 +149,7 @@ export function CoursesWithPagination({
             </motion.div>
 
             <motion.div
-              className="text-4xl md:text-6xl font-bold mb-8 text-[#b6d900]"
+              className="text-4xl md:text-6xl font-bold mb-8 text-[#e82769]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -181,7 +181,7 @@ export function CoursesWithPagination({
             {/* Stats */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-gray-600">
               <div className="text-center">
-                <div className="text-2xl font-black text-[#12a9be] dark:text-white">
+                <div className="text-2xl font-black text-[#cf0072] dark:text-white">
                   {pagination.total}
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
@@ -190,7 +190,7 @@ export function CoursesWithPagination({
               </div>
               <div className="hidden sm:block w-px h-12 bg-gray-300 dark:bg-gray-600"></div>
               <div className="text-center">
-                <div className="text-2xl font-black text-[#12a9be] dark:text-white">
+                <div className="text-2xl font-black text-[#cf0072] dark:text-white">
                   {totalPages}
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
@@ -199,7 +199,7 @@ export function CoursesWithPagination({
               </div>
               <div className="hidden sm:block w-px h-12 bg-gray-300 dark:bg-gray-600"></div>
               <div className="text-center">
-                <div className="text-2xl font-black text-[#12a9be] dark:text-white">
+                <div className="text-2xl font-black text-[#cf0072] dark:text-white">
                   {currentPage}
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
@@ -214,7 +214,7 @@ export function CoursesWithPagination({
                 onClick={() => setViewMode('grid')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
                   viewMode === 'grid'
-                    ? ' text-white bg-[#12a9be] shadow-lg'
+                    ? ' text-white bg-gradient-to-r from-[#cf0072] to-[#680080] shadow-lg'
                     : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
               >
@@ -225,7 +225,7 @@ export function CoursesWithPagination({
                 onClick={() => setViewMode('list')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
                   viewMode === 'list'
-                    ? 'bg-[#12a9be] text-white shadow-lg'
+                    ? 'bg-gradient-to-r from-[#cf0072] to-[#680080] text-white shadow-lg'
                     : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
               >
@@ -305,7 +305,7 @@ export function CoursesWithPagination({
                           disabled={loading}
                           className={`px-3 sm:px-4 py-2 sm:py-3 rounded-xl font-bold transition-all duration-300 text-sm sm:text-base min-w-[40px] sm:min-w-[48px] ${
                             pageNum === currentPage
-                              ? 'bg-gradient-to-r from-[#0d617b] to-[#12a9be]  text-white shadow-lg'
+                              ? 'bg-gradient-to-r from-[#680080] to-[#cf0072] text-white shadow-lg'
                               : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                           }`} 
                         >

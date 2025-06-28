@@ -1,5 +1,7 @@
 "use client";
 
+import type React from "react";
+
 import { useState, useEffect, useCallback } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -429,9 +431,9 @@ export function VerificationPage() {
 
   return (
     <section className="relative bg-gradient-to-br from-gray-100 via-gray-100 to-gray-100 dark:from-[#0a0f1c] dark:via-[#0a0f1c] dark:to-[#0a0f1c] min-h-[calc(100vh)] flex flex-col justify-center items-center transition-colors duration-300 py-32 md:py-30">
-      <div className="absolute inset-0 opacity-40 ">
+      <div className="absolute inset-0 opacity-30">
         <Image
-          src="/es/bg/cyan3.png"
+          src="/es/bg/linear.png"
           alt=""
           fill
           className="object-cover"
@@ -445,7 +447,7 @@ export function VerificationPage() {
               <span className="text-gray-900 dark:text-white">
                 VERIFICA TU{" "}
               </span>
-              <span className="bg-gradient-to-r from-[#12a9be] to-[#0d617b] dark:from-[#b6d900] dark:to-[#b6d900] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#cf0072] to-[#360b7f] dark:from-[#e82769] dark:to-[#cf0072] bg-clip-text text-transparent">
                 CERTIFICADO
               </span>
             </h1>
@@ -457,10 +459,10 @@ export function VerificationPage() {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-r from-[#00D1FF]/20 to-[#2563EB]/20 dark:from-transparent dark:to-transparent rounded-[2rem] blur-2xl opacity-50" />
+            <div className="absolute -inset-4 bg-gradient-to-r from-[#cf0072]/20 to-[#360b7f]/20 dark:from-[#e82769]/10 dark:to-[#680080]/10 rounded-[2rem] blur-2xl opacity-50" />
 
             <div className="relative bg-white dark:bg-transparent rounded-2xl border border-gray-200/50 dark:border-gray-800/90 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)]  backdrop-blur-sm">
-              <div className="absolute -top-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 dark:via-primary/50 to-transparent" />
+              <div className="absolute -top-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#cf0072]/50 dark:via-[#e82769]/50 to-transparent" />
 
               <div className="p-8 md:p-10">
                 <Tabs
@@ -474,29 +476,29 @@ export function VerificationPage() {
                       <span className="text-xl font-semibold text-gray-700 dark:text-gray-300">
                         Buscar por
                       </span>
-                      <span className="text-xl font-semibold text-primary dark:text-primary">
+                      <span className="text-xl font-semibold text-[#cf0072] dark:text-[#e82769]">
                         :
                       </span>
-                      <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/50 dark:via-primary/50 to-transparent" />
+                      <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#cf0072]/50 dark:via-[#e82769]/50 to-transparent" />
                     </span>
                   </div>
 
                   <TabsList className="w-full h-auto mx-auto mb-4 bg-gray-100/50 dark:bg-[#1E293B]/80 border border-gray-200/50 dark:border-gray-800/50 rounded-xl p-1.5 backdrop-blur-sm flex md:flex-row flex-col gap-1.5">
                     <TabsTrigger
                       value="dni"
-                      className="flex-1 rounded-2xl py-2.5 text-sm font-medium data-[state=active]:bg-gradient-to-br from-[#0d617b] to-[#12a9be] dark:data-[state=active]:bg-gradient-to-br dark:from-[#b6d900]/45 dark:to-[#b6d900]/85 data-[state=active]:text-white dark:data-[state=active]:text-white data-[state=active]:shadow-sm transition-all duration-200 w-full cursor-pointer"
+                      className="flex-1 rounded-2xl py-2.5 text-sm font-medium data-[state=active]:bg-gradient-to-br from-[#360b7f] to-[#cf0072] dark:data-[state=active]:bg-gradient-to-br dark:from-[#680080] dark:to-[#e82769] data-[state=active]:text-white dark:data-[state=active]:text-white data-[state=active]:shadow-sm transition-all duration-200 w-full cursor-pointer"
                     >
                       Documento de identidad
                     </TabsTrigger>
                     <TabsTrigger
                       value="code"
-                      className="flex-1 rounded-2xl py-2.5 text-sm font-medium data-[state=active]:bg-gradient-to-br from-[#0d617b] to-[#12a9be] dark:data-[state=active]:bg-gradient-to-br dark:from-[#b6d900]/45 dark:to-[#b6d900]/85 data-[state=active]:text-white dark:data-[state=active]:text-white data-[state=active]:shadow-sm transition-all duration-200 w-full cursor-pointer"
+                      className="flex-1 rounded-2xl py-2.5 text-sm font-medium data-[state=active]:bg-gradient-to-br from-[#360b7f] to-[#cf0072] dark:data-[state=active]:bg-gradient-to-br dark:from-[#680080] dark:to-[#e82769] data-[state=active]:text-white dark:data-[state=active]:text-white data-[state=active]:shadow-sm transition-all duration-200 w-full cursor-pointer"
                     >
                       Código de Certificado
                     </TabsTrigger>
                     <TabsTrigger
                       value="name"
-                      className="flex-1 rounded-2xl py-2.5 text-sm font-medium data-[state=active]:bg-gradient-to-br from-[#0d617b] to-[#12a9be] dark:data-[state=active]:bg-gradient-to-br dark:from-[#b6d900]/45 dark:to-[#b6d900]/85 data-[state=active]:text-white dark:data-[state=active]:text-white data-[state=active]:shadow-sm transition-all duration-200 w-full cursor-pointer"
+                      className="flex-1 rounded-2xl py-2.5 text-sm font-medium data-[state=active]:bg-gradient-to-br from-[#360b7f] to-[#cf0072] dark:data-[state=active]:bg-gradient-to-br dark:from-[#680080] dark:to-[#e82769] data-[state=active]:text-white dark:data-[state=active]:text-white data-[state=active]:shadow-sm transition-all duration-200 w-full cursor-pointer"
                     >
                       Nombres y apellidos
                     </TabsTrigger>
@@ -548,7 +550,7 @@ export function VerificationPage() {
                               value={captchaInput}
                               onChange={handleCaptchaInputChange}
                               onKeyDown={handleKeyPress}
-                              className="w-full h-12 px-4 rounded-2xl bg-gray-50 dark:bg-transparent border border-gray-400 dark:border-gray-600 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary text-slate-700 dark:text-slate-200 text-center text-base transition-all duration-300"
+                              className="w-full h-12 px-4 rounded-2xl bg-gray-50 dark:bg-transparent border border-gray-400 dark:border-gray-600 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-[#cf0072] dark:focus:ring-[#e82769] text-slate-700 dark:text-slate-200 text-center text-base transition-all duration-300"
                               maxLength={5}
                               autoComplete="off"
                               disabled={loading}
@@ -557,7 +559,7 @@ export function VerificationPage() {
                         </div>
 
                         <div className="w-full sm:w-44">
-                          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0d617b] to-[#12a9be] dark:from-[#b6d900]/40 dark:to-[#b6d900]/90 h-12">
+                          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#360b7f] to-[#cf0072] dark:from-[#680080] dark:to-[#e82769] h-12">
                             <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
                             <div className="relative flex items-center justify-between px-4 sm:px-6 h-full">
                               <div className="text-white font-bold text-xl sm:text-xl tracking-widest select-none flex-1 text-center">

@@ -57,11 +57,11 @@ export default function ContactForm() {
   };
 
   return (
-    <div id="contacts" className="min-h-screen bg-gradient-to-t from-gray-100 via-white to-gray-100 dark:from-[#360b7f]/5 dark:via-[#90007e]/5 dark:to-[#360b7f]/5 relative overflow-hidden">
+    <div id="contactos" className="min-h-screen bg-gradient-to-t from-gray-100 via-white to-gray-100 dark:from-[#360b7f]/5 dark:via-[#90007e]/5 dark:to-[#360b7f]/5 relative overflow-hidden">
       {/* Decorative lines background */}
-      <div className="absolute  opacity-30">
+      <div className="absolute inset-0 opacity-30">
         <Image
-          src="/image/utils/linear.png"
+          src="/es/bg/linear.png"
           alt=""
           fill
           className="object-cover"

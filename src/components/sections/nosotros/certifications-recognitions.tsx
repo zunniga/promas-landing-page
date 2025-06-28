@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Globe, Zap, Award, Shield, Star, CheckCircle } from "lucide-react"
+import { Globe, Zap, Award, Shield, Star, CheckCircle } from 'lucide-react'
 
 interface CertificationsRecognitionsProps {
   partnerships: Array<{
@@ -54,7 +54,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
 
   return (
     <motion.section
-      className="py-24 md:py-32 relative overflow-hidden"
+      className="py-24 md:py-32 relative overflow-hidden bg-transparent"
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.2 }}
@@ -71,7 +71,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "radial-gradient(circle, rgba(18,169,190,0.4) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, rgba(54,11,127,0.4) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -93,7 +93,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
               whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
             >
               <motion.div
-                className="bg-gradient-to-r from-[#0d617b] to-[#12a9be] text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide flex items-center shadow-lg"
+                className="bg-gradient-to-r from-[#360b7f] to-[#680080] text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide flex items-center shadow-lg"
                 initial={{ width: 0, opacity: 0 }}
                 whileInView={{ width: "auto", opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -128,7 +128,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
 
             <motion.h2
               variants={enhancedItemVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-gray-900 via-[#0d617b] to-[#12a9be] dark:from-white dark:via-[#12a9be] dark:to-[#b6d900] bg-clip-text text-transparent mb-8 leading-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-gray-900 via-[#360b7f] to-[#680080] dark:from-white dark:via-[#cf0072] dark:to-[#e82769] bg-clip-text text-transparent mb-8 leading-tight"
             >
               <motion.span
                 initial={{ opacity: 0, x: -100, rotateY: -90 }}
@@ -140,7 +140,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
               </motion.span>
               <br />
               <motion.span
-                className="text-transparent bg-gradient-to-r from-[#0d617b] to-[#12a9be] bg-clip-text"
+                className="text-transparent bg-gradient-to-r from-[#cf0072] to-[#e82769] bg-clip-text"
                 initial={{ opacity: 0, x: 100, rotateY: 90 }}
                 whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
@@ -152,21 +152,21 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
 
             <motion.div variants={enhancedItemVariants} className="flex items-center justify-center mb-8">
               <motion.div
-                className="h-1 w-16 bg-gradient-to-r from-[#0d617b] to-[#12a9be] rounded-full"
+                className="h-1 w-16 bg-gradient-to-r from-[#360b7f] to-[#680080] rounded-full"
                 initial={{ width: 0 }}
                 whileInView={{ width: 64 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               />
               <motion.div
-                className="h-2 w-2 bg-[#12a9be] rounded-full mx-4"
+                className="h-2 w-2 bg-[#cf0072] rounded-full mx-4"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.4, type: "spring", stiffness: 200 }}
                 viewport={{ once: true }}
               />
               <motion.div
-                className="h-1 w-16 bg-gradient-to-r from-[#12a9be] to-[#b6d900] rounded-full"
+                className="h-1 w-16 bg-gradient-to-r from-[#cf0072] to-[#e82769] rounded-full"
                 initial={{ width: 0 }}
                 whileInView={{ width: 64 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -201,7 +201,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
               >
                 {/* Glow effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-[#12a9be]/20 to-[#b6d900]/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl transform scale-110"
+                  className="absolute inset-0 bg-gradient-to-r from-[#cf0072]/20 to-[#e82769]/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl transform scale-110"
                   initial={{ scale: 0, opacity: 0 }}
                   whileInView={{ scale: 1.1, opacity: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -209,7 +209,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
                 />
 
                 <motion.div
-                  className="relative h-full bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 dark:border-gray-700 hover:border-[#12a9be]/50 dark:hover:border-[#12a9be]/60 transition-all duration-500 text-center overflow-hidden flex flex-col justify-between min-h-[280px]"
+                  className="relative h-full bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 dark:border-gray-700 hover:border-[#cf0072]/50 dark:hover:border-[#cf0072]/60 transition-all duration-500 text-center overflow-hidden flex flex-col justify-between min-h-[280px]"
                   variants={cardHoverVariants}
                   initial={{ opacity: 0, rotateY: -90, scale: 0.8 }}
                   whileInView={{ opacity: 1, rotateY: 0, scale: 1 }}
@@ -223,7 +223,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
                 >
                   {/* Background gradient on hover */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-[#12a9be]/0 to-[#b6d900]/0 group-hover:from-[#12a9be]/10 group-hover:to-[#b6d900]/10 dark:group-hover:from-[#0d617b]/10 dark:group-hover:to-[#12a9be]/10 transition-all duration-500 rounded-3xl"
+                    className="absolute inset-0 bg-gradient-to-br from-[#cf0072]/0 to-[#e82769]/0 group-hover:from-[#cf0072]/10 group-hover:to-[#e82769]/10 dark:group-hover:from-[#360b7f]/10 dark:group-hover:to-[#680080]/10 transition-all duration-500 rounded-3xl"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
@@ -260,7 +260,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
 
                         {/* Status indicator */}
                         <motion.div
-                          className="absolute -top-2 -right-2 bg-gradient-to-r from-[#0d617b] to-[#12a9be] w-8 h-8 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300"
+                          className="absolute -top-2 -right-2 bg-gradient-to-r from-[#360b7f] to-[#680080] w-8 h-8 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300"
                           initial={{ scale: 0, rotate: -180 }}
                           whileInView={{ scale: 1, rotate: 0 }}
                           transition={{ duration: 0.6, delay: 0.6 + index * 0.1, type: "spring", stiffness: 200 }}
@@ -272,7 +272,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
 
                         {/* Decorative ring */}
                         <motion.div
-                          className="absolute inset-0 rounded-3xl border-2 border-[#12a9be]/0 group-hover:border-[#12a9be]/50 dark:group-hover:border-[#12a9be]/60 transition-all duration-500 transform group-hover:scale-105"
+                          className="absolute inset-0 rounded-3xl border-2 border-[#cf0072]/0 group-hover:border-[#cf0072]/50 dark:group-hover:border-[#cf0072]/60 transition-all duration-500 transform group-hover:scale-105"
                           initial={{ scale: 0, opacity: 0 }}
                           whileInView={{ scale: 1, opacity: 1 }}
                           transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
@@ -285,7 +285,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
                     <div className="flex flex-col justify-between flex-grow">
                       {/* Partner name */}
                       <motion.h4
-                        className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-[#0d617b] dark:group-hover:text-[#12a9be] transition-colors duration-300 leading-tight"
+                        className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-[#360b7f] dark:group-hover:text-[#cf0072] transition-colors duration-300 leading-tight"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
@@ -296,7 +296,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
 
                       {/* Partner type badge */}
                       <motion.div
-                        className="inline-flex items-center bg-gradient-to-r from-[#0d617b] to-[#12a9be] text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 mx-auto"
+                        className="inline-flex items-center bg-gradient-to-r from-[#680080] to-[#cf0072] text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 mx-auto"
                         initial={{ opacity: 0, scale: 0, y: 30 }}
                         whileInView={{ opacity: 1, scale: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 1.2 + index * 0.1, type: "spring", stiffness: 150 }}
@@ -336,7 +336,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
             viewport={{ once: true }}
           >
             <motion.div
-              className="inline-flex items-center bg-gradient-to-r from-[#12a9be]/10 to-[#b6d900]/10 dark:from-[#0d617b]/30 dark:to-[#12a9be]/30 px-8 py-4 rounded-full"
+              className="inline-flex items-center bg-gradient-to-r from-[#cf0072]/10 to-[#e82769]/10 dark:from-[#360b7f]/30 dark:to-[#680080]/30 px-8 py-4 rounded-full"
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
             >
@@ -347,10 +347,10 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
                 viewport={{ once: true }}
                 whileHover={{ rotate: 360 }}
               >
-                <Globe className="w-6 h-6 text-[#0d617b] dark:text-[#12a9be] mr-3" />
+                <Globe className="w-6 h-6 text-[#360b7f] dark:text-[#cf0072] mr-3" />
               </motion.div>
               <motion.span
-                className="text-[#0d617b] dark:text-[#12a9be] font-semibold"
+                className="text-[#360b7f] dark:text-[#cf0072] font-semibold"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -365,7 +365,7 @@ export function CertificationsRecognitions({ partnerships }: CertificationsRecog
                 viewport={{ once: true }}
                 whileHover={{ rotate: -360 }}
               >
-                <Zap className="w-6 h-6 text-[#0d617b] dark:text-[#12a9be] ml-3" />
+                <Zap className="w-6 h-6 text-[#360b7f] dark:text-[#cf0072] ml-3" />
               </motion.div>
             </motion.div>
           </motion.div>

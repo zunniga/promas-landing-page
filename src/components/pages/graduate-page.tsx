@@ -21,7 +21,7 @@ export default function GraduateLayout({
 }: GraduateLayoutProps) {
   return (
     <>
-      <main className="pt-23 pb-16 px-4">
+      <main className="pt-23 pb-16 px-4 bg-gradient-to-t from-gray-100 via-white to-gray-100 dark:from-[#070717] dark:via-[#070717] dark:to-[#070717]">
         <div className="max-w-[1200px] mx-auto space-y-16">
           <section>
             {/* Graduates Section with Pagination */}

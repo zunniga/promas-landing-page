@@ -169,5 +169,5 @@ export const commonRoutes = [
   { label: 'CURSOS', href: '/cursos' },
   { label: 'DIPLOMADOS', href: '/diplomados' },
   { label: 'VERIFICACION', href: '/certs' },
-  { label: 'CONTACTO', href: '/contacto' },
+  { label: 'CONTACTO', href: '#contactos' },
 ];
