@@ -24,19 +24,18 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
     "Casi listo...",
   ]
 
-
   // Posiciones fijas para partículas (determinísticas)
   const particlePositions = [
-    { left: 10, top: 85, size: "w-3 h-3", color: "bg-[#12a9be]/30", delay: 0 },
-    { left: 20, top: 90, size: "w-2 h-2", color: "bg-[#0d617b]/40", delay: 0.1 },
-    { left: 30, top: 88, size: "w-1.5 h-1.5", color: "bg-[#b6d900]/50", delay: 0.2 },
-    { left: 40, top: 92, size: "w-3 h-3", color: "bg-[#12a9be]/30", delay: 0.3 },
-    { left: 50, top: 87, size: "w-2 h-2", color: "bg-[#0d617b]/40", delay: 0.4 },
-    { left: 60, top: 91, size: "w-1.5 h-1.5", color: "bg-[#b6d900]/50", delay: 0.5 },
-    { left: 70, top: 89, size: "w-3 h-3", color: "bg-[#12a9be]/30", delay: 0.6 },
-    { left: 80, top: 93, size: "w-2 h-2", color: "bg-[#0d617b]/40", delay: 0.7 },
-    { left: 90, top: 86, size: "w-1.5 h-1.5", color: "bg-[#b6d900]/50", delay: 0.8 },
-    { left: 15, top: 94, size: "w-3 h-3", color: "bg-[#12a9be]/30", delay: 0.9 },
+    { left: 10, top: 85, size: "w-3 h-3", color: "bg-[#680080]/30", delay: 0 },
+    { left: 20, top: 90, size: "w-2 h-2", color: "bg-[#360b7f]/40", delay: 0.1 },
+    { left: 30, top: 88, size: "w-1.5 h-1.5", color: "bg-[#cf0072]/50", delay: 0.2 },
+    { left: 40, top: 92, size: "w-3 h-3", color: "bg-[#680080]/30", delay: 0.3 },
+    { left: 50, top: 87, size: "w-2 h-2", color: "bg-[#360b7f]/40", delay: 0.4 },
+    { left: 60, top: 91, size: "w-1.5 h-1.5", color: "bg-[#cf0072]/50", delay: 0.5 },
+    { left: 70, top: 89, size: "w-3 h-3", color: "bg-[#680080]/30", delay: 0.6 },
+    { left: 80, top: 93, size: "w-2 h-2", color: "bg-[#360b7f]/40", delay: 0.7 },
+    { left: 90, top: 86, size: "w-1.5 h-1.5", color: "bg-[#cf0072]/50", delay: 0.8 },
+    { left: 15, top: 94, size: "w-3 h-3", color: "bg-[#680080]/30", delay: 0.9 },
   ]
 
   // Detectar cliente para evitar hydration mismatch
@@ -126,16 +125,14 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
 
   const logoVariants = {
     hidden: {
-      scale: 0.3,
+      x: -200,
       opacity: 0,
-      rotateY: -180,
-      filter: "blur(20px)",
+      scale: 0.8,
     },
     visible: {
-      scale: 1,
+      x: 0,
       opacity: 1,
-      rotateY: 0,
-      filter: "blur(0px)",
+      scale: 1,
       transition: {
         type: "spring",
         stiffness: 120,
@@ -231,9 +228,9 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
           suppressHydrationWarning={true}
           style={{
             background: `
-              radial-gradient(circle at 20% 80%, rgba(13, 97, 123, 0.4) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(18, 169, 190, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, rgba(182, 217, 0, 0.2) 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(54, 11, 127, 0.4) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(104, 0, 128, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(207, 0, 114, 0.2) 0%, transparent 60%),
               linear-gradient(135deg, rgb(248, 250, 255) 0%, rgb(240, 245, 255) 50%, rgb(235, 242, 255) 100%)
             `,
           }}
@@ -244,7 +241,7 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
         >
           {/* Overlay modo oscuro */}
           <div
-            className="absolute inset-0 bg-gradient-to-br from-gray-900 via-[#0d617b] to-[#12a9be] dark:opacity-100 opacity-0 transition-opacity duration-500"
+            className="absolute inset-0 bg-gradient-to-br from-gray-900 via-[#070717] to-[#070717] dark:opacity-100 opacity-0 transition-opacity duration-500"
             suppressHydrationWarning={true}
           />
 
@@ -277,13 +274,13 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
 
           {/* Efectos de fondo geométricos */}
           <div className="absolute inset-0 opacity-10 dark:opacity-20" suppressHydrationWarning={true}>
-            <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-[#12a9be] rounded-full animate-pulse" />
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-[#680080] rounded-full animate-pulse" />
             <div
-              className="absolute bottom-1/4 right-1/4 w-24 h-24 border border-[#0d617b] rounded-lg rotate-45 animate-pulse"
+              className="absolute bottom-1/4 right-1/4 w-24 h-24 border border-[#360b7f] rounded-lg rotate-45 animate-pulse"
               style={{ animationDelay: "1s" }}
             />
             <div
-              className="absolute top-1/2 right-1/3 w-16 h-16 border border-[#b6d900] rounded-full animate-pulse"
+              className="absolute top-1/2 right-1/3 w-16 h-16 border border-[#cf0072] rounded-full animate-pulse"
               style={{ animationDelay: "2s" }}
             />
           </div>
@@ -294,7 +291,7 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
             <motion.div
               className="absolute inset-0 w-48 h-48 rounded-full"
               style={{
-                background: "conic-gradient(from 0deg, #0d617b, #12a9be, #b6d900, #0d617b)",
+                background: "conic-gradient(from 0deg, #360b7f, #680080, #cf0072, #e82769, #360b7f)",
                 padding: "3px",
               }}
               variants={mainRingVariants}
@@ -307,7 +304,7 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
 
             {/* Anillo medio */}
             <motion.div
-              className="absolute inset-3 w-42 h-42 border-2 border-transparent bg-gradient-to-r from-[#0d617b] via-[#12a9be] to-[#b6d900] rounded-full opacity-60"
+              className="absolute inset-3 w-42 h-42 border-2 border-transparent bg-gradient-to-r from-[#360b7f] via-[#680080] to-[#cf0072] rounded-full opacity-60"
               animate={{
                 rotate: -360,
                 scale: [1, 1.05, 1],
@@ -342,16 +339,16 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
                 suppressHydrationWarning={true}
               >
                 <Image
-                  src="/es/logos/logo-dark.png"
-                  alt="SAYAN Logo"
+                  src="/es/logos/promas_logo_dark.png"
+                  alt="PROMAS Logo"
                   className="dark:hidden w-full h-full object-contain drop-shadow-lg"
                   width={120}
                   height={120}
                   priority
                 />
                 <Image
-                  src="/es/logos/logo-dark.png"
-                  alt="SAYAN Logo"
+                  src="/es/logos/promas_logo_dark.png"
+                  alt="PROMAS Logo"
                   className="hidden dark:block w-full h-full object-contain drop-shadow-lg"
                   width={120}
                   height={120}
@@ -374,7 +371,7 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
                 ease: "linear",
               }}
               style={{
-                background: "linear-gradient(90deg, #0d617b, #12a9be, #b6d900, #0d617b, #12a9be)",
+                background: "linear-gradient(90deg, #360b7f, #680080, #cf0072, #e82769, #360b7f)",
                 backgroundSize: "200% 100%",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -382,7 +379,7 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
               }}
               suppressHydrationWarning={true}
             >
-              SAYAN
+              PROMÁS
             </motion.h1>
             <motion.p
               className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed"
@@ -417,7 +414,7 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
                 <motion.div
                   className="h-full relative rounded-full"
                   style={{
-                    background: "linear-gradient(90deg, #0d617b, #12a9be, #b6d900)",
+                    background: "linear-gradient(90deg, #360b7f, #680080, #cf0072)",
                     backgroundSize: "200% 100%",
                   }}
                   initial={{ width: "0%" }}
@@ -467,7 +464,7 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
                 key={`indicator-${index}`}
                 className="w-3 h-3 rounded-full"
                 style={{
-                  background: "linear-gradient(45deg, #0d617b, #12a9be)",
+                  background: "linear-gradient(45deg, #360b7f, #680080)",
                 }}
                 animate={{
                   scale: [0.8, 1.4, 0.8],
@@ -501,7 +498,7 @@ export function LoadingScreen({ progress = 0, onComplete }: LoadingScreenProps) 
               Preparando tu experiencia educativa de excelencia
             </motion.p>
             <div className="flex items-center justify-center space-x-2 text-xs text-gray-300 dark:text-gray-600">
-              <div className="w-2 h-2 bg-[#b6d900] rounded-full animate-pulse" />
+              <div className="w-2 h-2 bg-[#cf0072] rounded-full animate-pulse" />
               <span>Sistema inicializado</span>
             </div>
           </motion.div>
