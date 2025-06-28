@@ -65,23 +65,24 @@ export function FeaturedCourses({
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="inline-flex items-center justify-center mb-2">
-                <span className="mx-4 text-white p-2 rounded-2xl font-bold text-sm tracking-[0.2em] uppercase bg-gradient-to-r from-[#12a9be] to-[#12a9be] dark:bg-gradient-to-r dark:from-[#12a9be]/50 dark:to-[#12a9be] shadow-lg transition-transform duration-300 hover:scale-105">
+              <div className="inline-flex items-center justify-center mb-3">
+                <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#360b7f] dark:to-[#E82769]"></div>
+                <span className="mx-4 text-[#360b7f] dark:text-[#E82769] font-bold text-sm tracking-[0.2em] uppercase">
                   CURSOS
                 </span>
+                <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#360b7f] dark:to-[#E82769]"></div>
               </div>
 
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                Nuestros Cursos{" "}
-                <span className="bg-gradient-to-r from-[#12a9be] to-[#0d617b]  bg-clip-text text-transparent">
-                  Destacados
+                Transforma Tu{" "}
+                <span className="bg-gradient-to-r from-[#CF0072] to-[#90007e] dark:from-[#CF0072] dark:to-[#90007e] hover:bg-[#360b7f]/90 dark:hover:bg-[#680080]/90 bg-clip-text text-transparent">
+                  Futuro
                 </span>
               </h2>
-
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Cursos breves diseñados para reforzar habilidades técnicas y
-                profesionales. Ideales para quienes buscan actualizar sus
-                conocimientos en poco tiempo, con enfoque práctico y aplicable.
+              <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto px-4">
+                Descubre cursos diseñados por expertos que te llevarán al
+                siguiente nivel profesional, potenciando tus habilidades con
+                contenidos actualizados, metodologías prácticas.
               </p>
             </motion.div>
           </motion.div>
@@ -101,8 +102,7 @@ export function FeaturedCourses({
           >
             <Link
               href={`/${countryCode}/cursos`}
-              className="group inline-flex items-center  bg-gradient-to-r from-[#0d617b] to-[#12a9be] 
-        dark:from-[#12a9be] dark:to-[#0d617b] 
+              className="group inline-flex items-center bg-gradient-to-b from-[#CF0072] to-[#90007e] dark:from-[#CF0072]/90 dark:to-[#CF0072]/40 
         text-white font-bold px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <Book className="w-5 h-5 mr-3" />

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "SAYAN",
+  title: "PROMAS",
   description: "Somos una institución dedicada a la formación profesional y certificación de competencias en Perú.",
 }
 

@@ -4,8 +4,9 @@ import React from "react";
 import HeroCarousel from "@/components/sections/inicio/hero-carousel";
 import { FirstSection } from "@/components/sections/inicio/certificate-section";
 import { FeaturedCourses } from "@/components/sections/inicio/featured-courses";
-import { Testimonials } from "@/components/sections/inicio/testimonials";
-import { RectangularInfo } from "@/components/sections/inicio/rectangular-info";
+import CounterStats from "@/components/sections/inicio/counter-number";
+import ContactForm from "@/components/sections/inicio/contact-view";
+import Testimonials from "@/components/sections/inicio/testimonials";
 import { FeaturedDiplomas } from "@/components/sections/inicio/featured-diplomas";
 import type { HeroSlide, Testimonial } from "@/types";
 import type { CourseData } from "@/types/course";
@@ -25,53 +26,47 @@ interface HomeLayoutProps {
 
 export default function HomeLayout({
   countryCode,
-  countryName,
   featuredCourses,
-  testimonials,
   featuredDiplomas,
 }: HomeLayoutProps) {
   return (
     <>
       {/* Hero Section - Full screen */}
-      <section className="bg-gradient-to-br from-gray-100 via-gray-100 to-gray-100 dark:from-[#0a0f1c]/90 dark:via-[#0a0f1c]/90 dark:to-[#0a0f1c]/90 relative w-full h-screen">
+      <section className="bg-gradient-to-t from-gray-100 via-white to-gray-100 dark:from-[#070717] dark:via-[#070717] dark:to-[#070717]">
         <HeroCarousel />
       </section>
 
-      {/* Rest of content with proper spacing */}
-      <main className="bg-gradient-to-br from-gray-100 via-gray-100 to-gray-100 dark:from-[#0a0f1c]/90 dark:via-[#0a0f1c]/90 dark:to-[#0a0f1c]/90 pt-16 pb-16 px-4">
-        <div className="max-w-[1200px] mx-auto">
-          {/* Certificate Section - Nueva sección */}
-          <section>
-            <FirstSection />
-          </section>
+      <div className=" mx-auto">
+        {/* Certificate Section - Nueva sección */}
+        <section className="bg-gradient-to-t from-gray-100 via-white to-gray-100 dark:from-[#070717] dark:via-[#070717] dark:to-[#070717]">
+          <FirstSection />
+        </section>
 
-          {/* Featured Courses */}
+        {/* Featured Courses */}
 
-          <section>
-            <FeaturedDiplomas
-              countryCode={countryCode}
-              graduates={featuredDiplomas}
-            />
-          </section>
+        <section className="bg-gradient-to-t from-gray-100 via-white to-gray-100 dark:from-[#070717] dark:via-[#070717] dark:to-[#070717]">
+          <FeaturedDiplomas
+            countryCode={countryCode}
+            graduates={featuredDiplomas}
+          />
+        </section>
 
-          <section>
-            <Testimonials testimonials={testimonials} />
-          </section>
-          <section>
-            <FeaturedCourses
-              countryCode={countryCode}
-              courses={featuredCourses}
-            />
-          </section>
-          <section>
-            <RectangularInfo
-              countryCode={countryCode}
-              countryName={countryName}
-            />
-          </section>
-          
-        </div>
-      </main>
+        <section className="bg-gradient-to-t from-gray-100 via-white to-gray-100 dark:from-[#070717] dark:via-[#070717] dark:to-[#070717]">
+          <Testimonials />
+        </section>
+        <section className="bg-gradient-to-t from-gray-100 via-white to-gray-100 dark:from-[#070717] dark:via-[#070717] dark:to-[#070717]">
+          <FeaturedCourses
+            countryCode={countryCode}
+            courses={featuredCourses}
+          />
+        </section>
+        <section className=" bg-gradient-to-r from-[#CC0072]/45 to-[#360b7f]/45  dark:from-[#080718]/70 dark:via-[#080717]/70 dark:to-[#080717]/70">
+          <CounterStats />
+        </section>
+        <section className="bg-gradient-to-t from-gray-100 via-white to-gray-100 dark:from-[#070717] dark:via-[#070717] dark:to-[#070717]">
+          <ContactForm />
+        </section>
+      </div>
     </>
   );
 }

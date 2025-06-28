@@ -66,15 +66,17 @@ export function FeaturedDiplomas({
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center justify-center mb-2">
-                <span className="mx-4 text-white p-2 rounded-2xl font-bold text-sm tracking-[0.2em] uppercase bg-gradient-to-r from-[#12a9be] to-[#12a9be] dark:bg-gradient-to-r dark:from-[#12a9be]/50 dark:to-[#12a9be] shadow-lg transition-transform duration-300 hover:scale-105">
+                <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#360b7f] dark:to-[#E82769]"></div>
+                <span className="mx-4 text-[#360b7f] dark:text-[#E82769] font-bold text-sm tracking-[0.2em] uppercase">
                   DIPLOMADOS
                 </span>
+                <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#360b7f] dark:to-[#E82769]"></div>
               </div>
             </motion.div>
 
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Nuestros{" "}
-              <span className="bg-gradient-to-r from-[#12a9be] to-[#0d617b]  bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#CF0072] to-[#90007e] dark:from-[#CF0072] dark:to-[#90007e]  bg-clip-text text-transparent">
                 Diplomados
               </span>
             </h2>
@@ -100,8 +102,7 @@ export function FeaturedDiplomas({
           >
             <Link
               href={`/${countryCode}/diplomados`}
-              className="group inline-flex items-center bg-gradient-to-r from-[#0d617b] to-[#12a9be] 
-        dark:from-[#12a9be] dark:to-[#0d617b] 
+              className="group inline-flex items-center bg-gradient-to-b from-[#CF0072] to-[#90007e] dark:from-[#CF0072]/90 dark:to-[#CF0072]/40 
         text-white font-bold px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <Award className="w-5 h-5 mr-3" />

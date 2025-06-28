@@ -30,9 +30,9 @@ export const ThemeSwitch = () => {
       aria-label="Cambiar tema"
     >
       {isDark ? (
-        <Sun className="w-5 h-5  text-[#b6d900]" />
+        <Sun className="w-5 h-5  text-[#E82769]" />
       ) : (
-        <Moon className="w-5 h-5  text-[#0d617b]" />
+        <Moon className="w-5 h-5  text-[#360b7f]" />
       )}
     </button>
   );

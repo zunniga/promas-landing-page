@@ -137,14 +137,14 @@
 
 @layer base {
   :root {
-    --background: 210 50% 98%;
+    --background: 0 0% 100%;
     --foreground: 210 10% 10%;
     --card: 0 0% 100%;
     --card-foreground: 210 10% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 210 10% 10%;
-    --primary: 193, 81%, 27%;
-    --primary-foreground: 193, 81%, 27%;
+    --primary: 258, 82%, 27%;
+    --primary-foreground: 210 30% 96%;
     --secondary: 210 30% 96%;
     --secondary-foreground: 210 70% 30%;
     --muted: 210 20% 96%;
@@ -173,14 +173,14 @@
   }
 
   .dark {
-    --background: 225 38% 8%;
+    --background: 224 71.4% 4.1%;
     --foreground: 210 10% 98%;
     --card: 210 30% 8%;
     --card-foreground: 210 10% 98%;
     --popover: 210 30% 8%;
     --popover-foreground: 210 10% 98%;
-    --primary: 68, 100%, 43%;
-    --primary-foreground: 68, 100%, 43%;
+    --primary: 338, 81%, 52%;
+    --primary-foreground: 258, 82%, 27%;
     --secondary: 210 30% 15%;
     --secondary-foreground: 210 10% 98%;
     --muted: 210 30% 15%;
@@ -216,4 +216,47 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-2;
+  }
+
+  .heading-xl {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 leading-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 leading-tight;
+  }
+
+  .salon-card {
+    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-lime-400;
+}
+
+.section-padding {
+  @apply py-16 sm:py-24 lg:py-32;
+}
+
+.hover-lift {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
 }

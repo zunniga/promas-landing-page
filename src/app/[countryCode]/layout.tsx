@@ -1,7 +1,7 @@
 import { Navbar } from '@/components/shared/layout/navbar';
 import { Footer } from '@/components/shared/layout/footer';
 import { WhatsAppButton } from "@/components/ui/float-button/whatsapp-button";
-import { ScrollToTopButton } from "@/components/ui/float-button/scroll-to-top-button";
+import  ScrollToTopButton  from "@/components/ui/float-button/scroll-to-top-button";
 import { countries } from '@/config/countries';
 import { notFound } from 'next/navigation';
 

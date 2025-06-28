@@ -1,280 +1,273 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { testimonials } from "./utils/testimonials";
+import Link from "next/link";
 
-export interface Testimonial {
-  id: string;
+const testimonialVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 300 : -300,
+    opacity: 0,
+    scale: 0.9,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+  exit: (direction: number) => ({
+    x: direction < 0 ? 300 : -300,
+    opacity: 0,
+    scale: 0.9,
+    transition: { duration: 0.4 },
+  }),
+};
+
+type Testimonial = {
+  id: string | number;
   name: string;
   role: string;
-  company: string;
-  avatar: string;
-  comment: string;
+  image?: string;
+  quote: string;
   rating: number;
-}
+};
 
-interface TestimonialsProps {
-  testimonials: Testimonial[];
-}
+function TestimonialCard({
+  testimonial,
+  index,
+}: {
+  testimonial: Testimonial;
+  index: number;
+}) {
+  return (
+    <motion.div
+      className="bg-white dark:bg-[#101424] rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 relative"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.8 }}
+      whileHover={{ y: -5, scale: 1.02, transition: { duration: 0.3 } }}
+      layout
+    >
+      {/* Quote icon */}
+      <motion.div
+        className="absolute top-4 right-4 w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center"
+        initial={{ scale: 0, rotate: -180 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ delay: 0.3, duration: 0.5, ease: "backOut" }}
+      >
+        <svg
+          className="w-5 h-5 text-white"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+        </svg>
+      </motion.div>
 
-export function Testimonials({ testimonials }: TestimonialsProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "center",
-    skipSnaps: false,
-    duration: 25,
-  });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
+      <Link
+        href="https://www.facebook.com/profile.php?id=61552473052389&sk=reviews"
+        target="_blank"
+        className="block"
+      >
+        <motion.div
+          className="flex items-center mb-4"
+          initial={{ x: -20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.4 }}
+        >
+          <div className="relative w-12 h-12 rounded-full overflow-hidden mr-3 ring-2 ring-purple-500">
+            <Image
+              src={testimonial.image ?? "/default-avatar.png"}
+              alt={testimonial.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <h3 className="font-bold text-gray-900 dark:text-white">
+              {testimonial.name}
+            </h3>
+            <p className="text-purple-600 dark:text-pink-400 text-sm">
+              {testimonial.role}
+            </p>
+          </div>
+        </motion.div>
+      </Link>
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-    setCanScrollPrev(emblaApi.canScrollPrev());
-    setCanScrollNext(emblaApi.canScrollNext());
-  }, [emblaApi]);
+      <motion.blockquote
+        className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+      >
+        {testimonial.quote}
+      </motion.blockquote>
 
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    onSelect();
-    setScrollSnaps(emblaApi.scrollSnapList());
-    emblaApi.on("select", onSelect);
-
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi, onSelect]);
-
-  const scrollTo = useCallback(
-    (index: number) => emblaApi && emblaApi.scrollTo(index),
-    [emblaApi]
+      <motion.div
+        className="flex space-x-1"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.4 }}
+      >
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.6 + i * 0.1, duration: 0.3 }}
+          >
+            <Star
+              className="w-4 h-4 text-yellow-400"
+              fill={i < testimonial.rating ? "currentColor" : "none"}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.div>
   );
+}
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
+function NavButton({
+  onClick,
+  direction,
+}: {
+  onClick: () => void;
+  direction: "prev" | "next";
+}) {
+  return (
+    <motion.button
+      onClick={onClick}
+      className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center hover:border-purple-500 hover:text-purple-500 transition-all duration-300 bg-white dark:bg-gray-800"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      aria-label={direction === "prev" ? "Anterior" : "Siguiente"}
+    >
+      {direction === "prev" ? (
+        <ChevronLeft className="w-5 h-5" />
+      ) : (
+        <ChevronRight className="w-5 h-5" />
+      )}
+    </motion.button>
+  );
+}
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+export default function TestimonialsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+ 
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
+  const changeTestimonial = (newIndex: number) => {
+    setDirection(newIndex > currentIndex ? 1 : -1);
+    setCurrentIndex(newIndex);
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
+  // Auto-play
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % testimonials.length;
+      changeTestimonial(nextIndex);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [currentIndex]);
+
+  const handleNavigation = (dir: "prev" | "next") => {
+    const newIndex =
+      dir === "prev"
+        ? (currentIndex - 1 + testimonials.length) % testimonials.length
+        : (currentIndex + 1) % testimonials.length;
+    changeTestimonial(newIndex);
+  };
+
+  // Set how many testimonials to show at once (e.g., 3 for desktop, 1 for mobile)
+  const visibleCount = 3;
+
+  const getVisibleTestimonials = () => {
+    const extended = [...testimonials, ...testimonials];
+    return Array.from({ length: visibleCount }, (_, i) => extended[currentIndex + i]);
   };
 
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden bg-transparent">
-      {/* Floating elements with new colors */}
-      <motion.div
-        className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-r from-[#12a9be]/10 to-[#0d617b]/10 rounded-full blur-xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 180, 360],
-          opacity: [0.1, 0.2, 0.1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Number.POSITIVE_INFINITY,
-          repeatType: "reverse",
-        }}
-      />
+    <section className="bg-transparent py-16">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Header */}
+        <div className="text-center mb-12">
 
-      <motion.div
-        className="absolute bottom-20 left-10 w-40 h-40 bg-gradient-to-r from-[#b6d900]/10 to-[#12a9be]/10 rounded-full blur-xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          rotate: [360, 180, 0],
-          opacity: [0.1, 0.15, 0.1],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Number.POSITIVE_INFINITY,
-          repeatType: "reverse",
-          delay: 3,
-        }}
-      />
-
-      <div className="container mx-auto relative z-10">
-        <div className="max-w-7xl mx-auto">
-          {/* Header con el nuevo diseño */}
-          <motion.div
-            className="text-center mb-12"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.div variants={itemVariants} className="inline-block mb-6">
-              <div className="inline-flex items-center justify-center mb-0">
-                <span className="mx-4 text-white p-2 rounded-2xl font-bold text-sm tracking-[0.2em] uppercase bg-gradient-to-r from-[#12a9be] to-[#12a9be] dark:bg-gradient-to-r dark:from-[#12a9be]/50 dark:to-[#12a9be] shadow-lg transition-transform duration-300 hover:scale-105">
-                  TESTIMONIOS
-                </span>
-              </div>
-            </motion.div>
-
-            <motion.h2
-              variants={itemVariants}
-              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight"
-            >
-              ¡Experiencias que{" "}
-              <span className="relative">
-                <span className="bg-gradient-to-r from-[#12a9be] to-[#0d617b] bg-clip-text text-transparent">inspiran</span>
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-[#b6d900] rounded-full"></div>
-              </span>
-              !
-            </motion.h2>
-          </motion.div>
-
-          {/* Carousel Container con nuevo estilo */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex">
-                {testimonials.map((testimonial) => (
-                  <div
-                    key={testimonial.id}
-                    className="flex-[0_0_100%] min-w-0 md:flex-[0_0_90%] lg:flex-[0_0_50%] xl:flex-[0_0_33.333%]"
-                  >
-                    <motion.div
-                      className="bg-[#0d617b]/90 backdrop-blur-sm rounded-2xl p-6 mx-3 h-[380px] flex flex-col shadow-xl hover:shadow-2xl border border-[#12a9be]/20 hover:border-[#12a9be]/40 transition-all duration-300 relative overflow-hidden group"
-                      whileHover={{ y: -4, scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {/* Glow effect con nuevos colores */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#12a9be]/10 to-[#b6d900]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                      {/* Quote Icon Background */}
-                      <div className="absolute top-4 right-4 opacity-10">
-                        <Quote size={60} className="text-[#12a9be]" />
-                      </div>
-
-                      <div className="relative z-10 flex flex-col h-full">
-                        {/* Rating con estrellas amarillas */}
-                        <div className="flex items-center justify-center mb-4">
-                          <div className="flex items-center gap-1">
-                            {[...Array(5)].map((_, i) => (
-                              <Star
-                                key={i}
-                                size={20}
-                                className={`${
-                                  i < testimonial.rating
-                                    ? "text-[#b6d900] fill-[#b6d900]"
-                                    : "text-gray-500"
-                                }`}
-                              />
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Comment optimizado */}
-                        <blockquote className="text-white leading-relaxed flex-grow text-base relative mb-6 text-center">
-                          <div className="absolute -left-2 -top-2 text-[#12a9be] opacity-30">
-                            <Quote size={20} />
-                          </div>
-                          <p className="px-4 font-medium">
-                            &quot;{testimonial.comment}&quot;
-                          </p>
-                        </blockquote>
-
-                        {/* Header con avatar y info */}
-                        <div className="flex items-center justify-center">
-                          <div className="flex-shrink-0 relative mr-4">
-                            <div className="h-12 w-12 relative rounded-full overflow-hidden shadow-lg ring-2 ring-[#12a9be]/50">
-                              <Image
-                                src={testimonial.avatar || "/placeholder.svg"}
-                                alt={testimonial.name}
-                                fill
-                                className="object-cover"
-                              />
-                            </div>
-                            {/* Status indicator */}
-                            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#b6d900] rounded-full border-2 border-[#0d617b] shadow-sm"></div>
-                          </div>
-                          <div className="text-center">
-                            <h4 className="font-bold text-lg text-white group-hover:text-[#12a9be] transition-colors">
-                              {testimonial.name}
-                            </h4>
-                            <p className="text-[#12a9be] text-sm font-medium">
-                              {testimonial.role}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Navigation Arrows con nuevo estilo */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#0d617b] rounded-full shadow-lg border-2 border-[#12a9be]/30 flex items-center justify-center text-white hover:text-[#12a9be] hover:border-[#12a9be] hover:bg-[#0d617b]/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10"
-              onClick={scrollPrev}
-              disabled={!canScrollPrev}
-            >
-              <ChevronLeft size={20} />
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#0d617b] rounded-full shadow-lg border-2 border-[#12a9be]/30 flex items-center justify-center text-white hover:text-[#12a9be] hover:border-[#12a9be] hover:bg-[#0d617b]/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10"
-              onClick={scrollNext}
-              disabled={!canScrollNext}
-            >
-              <ChevronRight size={20} />
-            </motion.button>
-          </motion.div>
-
-          {/* Controls con nuevos colores */}
-          <div className="flex justify-center items-center mt-8 gap-2">
-            {scrollSnaps.map((_, index) => (
-              <motion.button
-                key={index}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                className={`transition-all duration-300 ${
-                  index === selectedIndex
-                    ? "w-8 h-2 bg-[#12a9be] rounded-full"
-                    : "w-2 h-2 bg-gray-400 hover:bg-[#12a9be]/70 rounded-full"
-                }`}
-                onClick={() => scrollTo(index)}
-                aria-label={`Ir al testimonio ${index + 1}`}
-              />
-            ))}
+           <div className="inline-flex items-center justify-center mb-3">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#360b7f] dark:to-[#E82769]"></div>
+            <span className="mx-4 text-[#360b7f] dark:text-[#E82769] font-bold text-sm tracking-[0.2em] uppercase">
+              TESTIMONIOS
+            </span>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#360b7f] dark:to-[#E82769]"></div>
           </div>
+
+
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            Reseñas de nuestros{" "}
+            <span className="bg-gradient-to-r from-[#CF0072] to-[#90007e] dark:from-[#CF0072] dark:to-[#90007e] hover:bg-[#360b7f]/90 dark:hover:bg-[#680080]/90 bg-clip-text text-transparent">
+              Participantes
+            </span>
+          </h2>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div
+          className="relative overflow-hidden mb-8"
+          style={{ minHeight: "300px" }}
+        >
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={testimonialVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {getVisibleTestimonials().map((testimonial, index) => (
+                <TestimonialCard
+                  key={`${testimonial.id}-${currentIndex}-${index}`}
+                  testimonial={testimonial}
+                  index={index}
+                />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Navigation */}
+        <div className="flex justify-center space-x-4 mb-6">
+          <NavButton
+            onClick={() => handleNavigation("prev")}
+            direction="prev"
+          />
+          <NavButton
+            onClick={() => handleNavigation("next")}
+            direction="next"
+          />
+        </div>
+
+        {/* Dots indicator (mobile only) */}
+        <div className="flex justify-center space-x-2 md:hidden">
+          {testimonials.map((_, index) => (
+            <motion.button
+              key={index}
+              onClick={() => changeTestimonial(index)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                index === currentIndex
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600"
+                  : "bg-gray-300 dark:bg-gray-600"
+              }`}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              animate={{ scale: index === currentIndex ? 1.2 : 1 }}
+              aria-label={`Ir al testimonio ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
