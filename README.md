@@ -1,6 +1,6 @@
-# CIMADE Website
+# PROMAS Website
 
-Este es el sitio web oficial de CIMADE (Centro de Investigación y Mejoramiento Académico para el Desarrollo Educativo), diseñado con una arquitectura escalable que permite administrar múltiples sitios para diferentes países conservando una estructura común.
+Este es el sitio web oficial de PROMAS (Centro de Investigación y Mejoramiento Académico para el Desarrollo Educativo), diseñado con una arquitectura escalable que permite administrar múltiples sitios para diferentes países conservando una estructura común.
 
 ## Estructura del Proyecto
 
